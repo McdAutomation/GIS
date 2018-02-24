@@ -1,7 +1,8 @@
 import fiona
 from shapely.geometry import shape,MultiLineString, mapping
-with fiona.open("IND_roads.shp") as source:
-    with fiona.open("IND_dest.shp",'w', driver='ESRI Shapefile',
+
+with fiona.open("IND_water_lines_dcw.shp") as source:
+    with fiona.open("IND_water_lines_dcw_dest.shp",'w', driver='ESRI Shapefile',
                 crs=source.crs,schema=source.schema) as ouput:
         for elem in source:
             reconstruct = shape(elem['geometry'])
